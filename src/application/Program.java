@@ -19,15 +19,20 @@ public class Program {
 		System.out.print("Holder: ");
 		sc.nextLine();
 		String holder = sc.nextLine();
-		System.out.println("Initial balance: ");
-		double balance = sc.nextInt();
-		System.out.println("Withdraw limit: ");
-		double withdrawLimit  = sc.nextInt();
+		System.out.print("Initial balance: ");
+		double balance = sc.nextDouble();
+		System.out.print("Withdraw limit: ");
+		double withdrawLimit  = sc.nextDouble();
 		
 		Account acc = new Account(number, holder, balance, withdrawLimit);
 		
-		
-		
+		System.out.println();
+	    System.out.print("Enter amount for withdraw: ");
+	    double amount = sc.nextDouble();
+	    
+	    acc.withDraw(amount);
+	    System.out.printf("Novo saldo: " + String.format("%.2f", acc.getBalance()));
+	    
 		
 		sc.close();
 
