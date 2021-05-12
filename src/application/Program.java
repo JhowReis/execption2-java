@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Account;
+import execptions.BusinessException;
 
 public class Program {
 
@@ -30,9 +31,13 @@ public class Program {
 	    System.out.print("Enter amount for withdraw: ");
 	    double amount = sc.nextDouble();
 	    
-	    acc.withDraw(amount);
-	    System.out.printf("Novo saldo: " + String.format("%.2f", acc.getBalance()));
-	    
+	    try {
+	    	acc.withDraw(amount);
+	    	System.out.printf("Novo saldo: " + String.format("%.2f", acc.getBalance()));
+	    }
+	    catch (BusinessException e) {
+	    	System.out.println(e.getMessage());
+	    }
 		
 		sc.close();
 
